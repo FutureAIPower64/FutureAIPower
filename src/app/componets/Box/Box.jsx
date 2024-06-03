@@ -49,7 +49,7 @@ function Box() {
 
   const searchCard = (e) => {
     dispatch(searchData(e));
-    setToggle("hidden");
+    dispatch(changeToggle('hidden'));
 
   };
 
