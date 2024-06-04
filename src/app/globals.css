@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-  font-family:  ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 .AI_Tools.owl-theme .owl-nav {
@@ -15,7 +15,6 @@ body{
   top: 50%;
   transform: translateY(-50%);
 }
-
 
 .AI_Tools.owl-carousel .owl-nav button,
 .news_Slider.owl-carousel .owl-nav button {
@@ -33,7 +32,7 @@ body{
 #light .owl-nav button span {
   display: block !important;
   font-size: 20px;
-  background-color: #E2E8F0;
+  background-color: #e2e8f0;
   border-radius: 50%;
   padding: 0px 15px;
   padding-bottom: 4px;
@@ -56,9 +55,6 @@ body{
   left: 0;
 }
 
-=======
-}
-
 /* news slider button ---------------------------------------------------------------- */
 .news_Slider.owl-theme .owl-nav {
   position: absolute;
@@ -67,14 +63,14 @@ body{
 
 @media only screen and (max-width: 426px) {
   .news_Slider.owl-theme .owl-nav {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   #light .owl-nav button span {
-      font-size: 18px;
-      padding: 0px 12px;
+    font-size: 18px;
+    padding: 0px 12px;
   }
 }
 
@@ -89,11 +85,13 @@ body{
 
 .sliderBar::-webkit-scrollbar-thumb {
   background-color: transparent !important;
-}@tailwind base;
+}
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-  font-family:  ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+body {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
 .AI_Tools.owl-theme .owl-nav {
@@ -104,7 +102,6 @@ body{
   top: 50%;
   transform: translateY(-50%);
 }
-
 
 .AI_Tools.owl-carousel .owl-nav button,
 .news_Slider.owl-carousel .owl-nav button {
@@ -122,7 +119,7 @@ body{
 #light .owl-nav button span {
   display: block !important;
   font-size: 20px;
-  background-color: #E2E8F0;
+  background-color: #e2e8f0;
   border-radius: 50%;
   padding: 0px 15px;
   padding-bottom: 4px;
@@ -147,14 +144,14 @@ body{
 
 @media only screen and (max-width: 426px) {
   .news_Slider.owl-theme .owl-nav {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   #light .owl-nav button span {
-      font-size: 18px;
-      padding: 0px 12px;
+    font-size: 18px;
+    padding: 0px 12px;
   }
 }
 
