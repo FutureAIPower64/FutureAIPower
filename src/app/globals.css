@@ -1,33 +1,81 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  font-family:  ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.AI_Tools.owl-theme .owl-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.AI_Tools.owl-carousel .owl-nav button,
+.news_Slider.owl-carousel .owl-nav button {
+  border-radius: 50%;
+}
+
+.AI_Tools.owl-carousel .owl-nav button.owl-prev {
+  margin-left: -20px;
+}
+
+.AI_Tools.owl-carousel .owl-nav button.owl-next {
+  margin-right: -20px;
+}
+
+#light .owl-nav button span {
+  display: block !important;
+  font-size: 20px;
+  background-color: #E2E8F0;
+  border-radius: 50%;
+  padding: 0px 15px;
+  padding-bottom: 4px;
+  border: 2px solid #27272a;
+  color: black;
+}
+
+#light .owl-carousel .owl-nav button span:hover {
+  color: white !important;
+}
+
+.bg-dark-color span {
+  color: white !important;
+  background-color: black !important;
+}
+
+/* news slider button ---------------------------------------------------------------- */
+.news_Slider.owl-theme .owl-nav {
+  position: absolute;
+  left: 0;
+}
+
+@media only screen and (max-width: 426px) {
+  .news_Slider.owl-theme .owl-nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  #light .owl-nav button span {
+      font-size: 18px;
+      padding: 0px 12px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.sliderBar::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.sliderBar::-webkit-scrollbar-button {
+  background-color: transparent !important;
+}
+
+.sliderBar::-webkit-scrollbar-thumb {
+  background-color: transparent !important;
 }
