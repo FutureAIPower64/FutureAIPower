@@ -25,6 +25,12 @@ function Box() {
     setTemp(uniqueListing);
   }, []);
 
+  // addEventListener("keydown", (e) => {
+  //   if (e.ctrlKey && e.key === "k") {
+  //     e.preventDefault();
+  //     dispatch(changeToggle('visible'));
+  //   }
+  // });
   addEventListener("keydown", (e) => {
     if (e.ctrlKey && e.key === "k") {
       e.preventDefault();
@@ -49,8 +55,8 @@ function Box() {
 
   const searchCard = (e) => {
     dispatch(searchData(e));
+    setToggle("hidden");
     dispatch(changeToggle('hidden'));
-
   };
 
   return (

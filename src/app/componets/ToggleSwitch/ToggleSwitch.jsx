@@ -1,24 +1,33 @@
 'use client'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PiSunDuotone } from 'react-icons/pi';
 import { RxMoon } from 'react-icons/rx';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeMode } from '../../store/counter/counterSlice';
+import { useTheme } from 'next-themes';
 
 function ToggleSwitch() {
-    const mode = useSelector((state) => state.counter.mode);
-    const DarkBtn = useSelector((state) => state.counter.DarkBtn);
-    const dispatch = useDispatch();
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme("dark");
+    const [DarkBtn, setDarkBtn] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-    const setMode = (ele) => {
-        localStorage.setItem('mode', ele);
-        dispatch(changeMode(ele));
-        setTimeout(() => {
-            toggleDropdown();
-        }, 300)
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) return null
+
+    const setMode = (mode) => {
+        if (mode == 'system') {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                setTheme(event.matches ? 'dark' : 'light');
+                setDarkBtn(theme);
+            });
+        } else {
+            setTheme(mode);
+        }
+        toggleDropdown();
     }
 
-    const [isOpen, setIsOpen] = useState(false);
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
@@ -29,18 +38,13 @@ function ToggleSwitch() {
         }
     };
 
-    useEffect(() => {
-        window.addEventListener('mouseup', outsideToggle);
-        return () => {
-            window.removeEventListener('mouseup', outsideToggle);
-        };
-    }, [isOpen]);
+    window.addEventListener('mousedown', outsideToggle);
 
     return (
         <div className='container flex px-0 duration-300'>
             <div className="relative dropdown-container">
                 <button onClick={toggleDropdown} className="inline-flex items-center justify-center w-[40px] py-1 text-xl dark:text-gray-200 bg-transparent text-white dark:bg-dark-black dark:hover:bg-hover-black rounded-md duration-300 " >
-                    {mode == 'system' ? DarkBtn == "dark" ? <RxMoon /> : <PiSunDuotone className='text-black' /> : mode == 'dark' ? <RxMoon /> : <PiSunDuotone className='text-black' />}
+                    {theme == 'system' ? DarkBtn == "dark" ? <RxMoon /> : <PiSunDuotone className='text-black' /> : theme == 'dark' ? <RxMoon /> : <PiSunDuotone className='text-black' />}
                 </button>
                 <div className={`absolute right-0 z-10 mt-2 w-[100px] bg-white text-black shadow-lg dark:shadow dark:shadow-card-border dark:bg-dark-black rounded-md transition-all origin-top-right duration-300 ${isOpen ? "scale-100" : "scale-0"} `}>
                     <ul className="text-center p-1">

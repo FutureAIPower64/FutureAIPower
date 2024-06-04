@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body{
   font-family:  ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
@@ -47,6 +48,15 @@ body{
 .bg-dark-color span {
   color: white !important;
   background-color: black !important;
+}
+
+/* news slider button ---------------------------------------------------------------- */
+.news_Slider.owl-theme .owl-nav {
+  position: absolute;
+  left: 0;
+}
+
+=======
 }
 
 /* news slider button ---------------------------------------------------------------- */

@@ -7,7 +7,7 @@ export const metadata = {
 export default function AIToolsPage() {
     return (
         <>
-        <AI_Tools/>
+            <AI_Tools/>
         </>
     );
 }
