@@ -16,43 +16,17 @@ function ToggleSwitch() {
 
     if (!mounted) return null
 
-    // const setMode = (mode) => {
-    //     if (mode == 'system') {
-    //         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    //             setTheme(event.matches ? 'dark' : 'light');
-    //             setDarkBtn(theme);
-    //         });
-    //     } else {
-    //         setTheme(mode);
-    //     }
-    //     toggleDropdown();
-    // }
-
     const setMode = (mode) => {
-        if (mode === 'system') {
-            // Initialize theme based on system preference
-            const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setTheme(systemDarkMode ? 'dark' : 'light');
-            setDarkBtn(systemDarkMode ? 'dark' : 'light');
-
-            // Listen for changes in system color scheme
-            // const listener = event => {
-            //     setTheme(event.matches ? 'dark' : 'light');
-            //     setDarkBtn(event.matches ? 'dark' : 'light');
-            // };
-            // const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            // mediaQuery.addEventListener('change', listener);
-
-            // Clean up listener when component unmounts
-            // return () => mediaQuery.removeEventListener('change', listener);
+        if (mode == 'system') {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                setTheme(event.matches ? 'dark' : 'light');
+                setDarkBtn(theme);
+            });
         } else {
-            // For manual dark/light mode selection
             setTheme(mode);
-            setDarkBtn(mode);
         }
         toggleDropdown();
-    };
-
+    }
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
