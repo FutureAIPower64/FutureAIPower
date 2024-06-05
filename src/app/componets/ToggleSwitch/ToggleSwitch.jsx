@@ -16,14 +16,40 @@ function ToggleSwitch() {
 
     if (!mounted) return null
 
+    // const setMode = (mode) => {
+    //     if (mode == 'system') {
+    //         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    //             setTheme(event.matches ? 'dark' : 'light');
+    //             setDarkBtn(theme);
+    //         });
+    //     } else {
+    //         setTheme(mode);
+    //     }
+    //     toggleDropdown();
+    // }
+
     const setMode = (mode) => {
-        if (mode == 'system') {
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        if (mode === 'system') {
+            const systemDarkModeListener = window.matchMedia('(prefers-color-scheme: dark)');
+
+            const handleSystemDarkModeChange = (event) => {
                 setTheme(event.matches ? 'dark' : 'light');
-                setDarkBtn(theme);
-            });
+                setDarkBtn(event.matches ? 'dark' : 'light');
+            };
+
+            systemDarkModeListener.addEventListener('change', handleSystemDarkModeChange);
+
+            // Set the initial theme based on system preference
+            setTheme(systemDarkModeListener.matches ? 'dark' : 'light');
+            setDarkBtn(systemDarkModeListener.matches ? 'dark' : 'light');
+
+            // Clean up the event listener when the component unmounts
+            return () => {
+                systemDarkModeListener.removeEventListener('change', handleSystemDarkModeChange);
+            };
         } else {
             setTheme(mode);
+            setDarkBtn(mode === 'dark' ? 'dark' : 'light');
         }
         toggleDropdown();
     }
