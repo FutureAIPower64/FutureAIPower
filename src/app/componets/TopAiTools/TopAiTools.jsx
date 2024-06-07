@@ -9,7 +9,6 @@ import { IoIosStar } from "react-icons/io";
 import { useSelector } from 'react-redux';
 import BlogHead from '../BlogHead/BlogHead';
 import Image from 'next/image';
-
 function TopAiTools() {
     const cards = useSelector(state => state.counter.cards);
     const mode = useSelector(state => state.counter.mode);
@@ -59,8 +58,8 @@ function TopAiTools() {
                             <div className='flex justify-between my-4'>
                                 <p className='text-md font-semibold text-sm'>{card.buttonText}</p>
                                 <div className='flex items-center rounded-md text-dark-black dark:bg-dark-bg-btn dark:border-card-color border-1 border-gray-300 hover:bg-gray-500'>
-                                    <button className='hover:text-white flex items-center px-1 rounded cursor-pointer dark:text-black dark:font-semibold border-1 dark:hover:text-white'>
-                                        <p className='text-sm me-2'>Visit</p>
+                                    <button className='hover:text-white flex items-center px-1 rounded cursor-pointer dark:text-black dark:font-semibold border-1 dark:hover:text-white' >
+                                        <a href='/Ai-ToolsDetail'><p className='text-sm me-2'>Visit</p></a>
                                         <HiExternalLink />
                                     </button>
                                 </div>
