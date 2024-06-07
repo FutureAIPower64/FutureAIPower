@@ -748,9 +748,30 @@ const initialState = {
         },
     ],
     toggle: 'hidden',
-    ai: [],
+    ai: [{
+        "Number": 1,
+        "Tools_name": "Jasper",
+        "overview": ["Jasper is an AI-powered content creation tool that assists users in generating various types of content quickly and efficiently. It can help with creating articles, blog posts, social media content, emails, ad copy, product descriptions, and more. Jasper uses advanced natural language processing (NLP) algorithms to understand user input and generate coherent and engaging content."],
+        "feature": ["Offers over 50 templates for different content types like articles, blog posts, social media, emails, ads, and product descriptions. "," Customizable tone and style settings. "," Ability to generate content based on specific keywords or topics. "," Integration with popular platforms like WordPress, Shopify, and more. "," Collaboration features for teams. "," Revision history to track changes and edits. "," Create content in over 30 languages. "," Improve your content's search by optimized for search engines, increasing visibility and reach. "," Boss mode use to Craft long-form content with Jasper's advanced features. "," Assists in crafting SEO-friendly content, contributing to improved visibility and search engine rankings."],
+        "probleam_solving": ["Jasper AI tool solves the problem of content creation like it addresses the challenges of producing high-quality, engaging, and SEO-optimized content across different formats such as blog posts, ad copy, email campaigns, and social media updates."," By leveraging advanced AI algorithms and machine learning capabilities, Jasper AI streamlines the content creation process, saving time and enhancing productivity for individuals, businesses, and marketing teams."],
+        "how_it_help": ["Content Creation"," Brand Voice Integration"," SEO Optimization","Conversational AI","Real-time Language Processing"," Project Management"],
+        "rating": " 4.2 out of 5 stars",
+        "pros": ["Saves time and effort in content creation.","Offers a wide range of content types and over 50 Versatile Templates.","Easy to use with customizable settings.","Can generate content on-demand."," Creates high-quality, creative content.","User-friendly interface."," SEO Optimization"],
+        "cons": ["May produce generic or repetitive content.","Requires human review and editing for quality assurance.","Pricing may be a concern for some users even free plan has limitations.","Limitations in Understanding Complex Instructions.","Depending on the content, Jasper's output may require heavy editing for a more polished end product.","Jasper may struggle with niche topics or complex subjects, requiring more manual input from users."]
+    }],
     aiAll: output,
-    aiCardData:[],
+    aiCardData:[
+        {
+            icon: icon14,
+            star: ["#FF9635", "#FF9635", "#FF9635", "#727272", "#727272"],
+            title: 'Jasper',
+            description: 'An AI-driven platform for efficient, high-quality content creation and...',
+            tags: ['#marketing', ' #storyteller'],
+            buttonText: 'Free Trial',
+            cate: 'Marketing',
+
+        },
+    ],
 };
 
 const counterSlice = createSlice({
@@ -795,11 +816,11 @@ const counterSlice = createSlice({
         aiData: (state, action) => {
             let title = action.payload;
             let AiFilteredData = state.aiAll.filter((item) => {
-                return item.Tools_name.toLowerCase().includes(title.toLowerCase())
-            });
+                return item.Tools_name.toLowerCase()===title.toLowerCase()
+            })
 
             let AiCateFilteredData = state.alldata.filter((item) => {
-                return item.title.toLowerCase().includes(title.toLowerCase())
+                return item.title.toLowerCase()===title.toLowerCase()
             })
             return {
                 ...state,
