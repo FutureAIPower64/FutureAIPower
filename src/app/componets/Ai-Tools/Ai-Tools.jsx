@@ -5,11 +5,18 @@ import { IoIosArrowForward, IoIosStar } from "react-icons/io";
 import { HiExternalLink } from "react-icons/hi";
 import { FiBookmark } from "react-icons/fi";
 import { LiaThumbsDown, LiaThumbsUp } from "react-icons/lia";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import img1 from '../../assets/jasper.png';
+import { aiData } from "@/app/store/counter/counterSlice";
+import Link from 'next/link';
+
 
 function AI_Tools() {
+  const dispatch = useDispatch();
   const AiTools = useSelector((state) => state.counter.cards);
+  const getAiData = (e) => {
+    dispatch(aiData(e));
+  }
   return (
     <div className="dark:text-gray-100 bg-light-ai-img dark:bg-Ai-image h-full bg-fixed bg-left dark:bg-left-bottom">
       <div className="container lg:px-10">
@@ -206,7 +213,7 @@ function AI_Tools() {
                       </div>
                       <div>
                         <button className="dark:text-black hover:text-black dark:bg-gray-100 text-dark text-xs py-1 hover:bg-dark-black duration-300 rounded border-1 px-2 dark:border-gray-300 dark:hover:bg-black dark:hover:text-white hover:border-white border-main-border">
-                          {ele.buttonText}
+                          <Link href='/Ai-ToolsDetail' onClick={()=>getAiData(ele.title)}>{ele.buttonText}</Link>
                         </button>
                       </div>
                     </div>

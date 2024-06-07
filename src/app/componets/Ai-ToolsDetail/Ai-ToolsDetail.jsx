@@ -14,8 +14,6 @@ function AI_ToolsDetail() {
   const AiCards = useSelector((state) => state.counter.aiCardData);
   console.log(AiCards);
 
-
-
   return (
     <div className="dark:text-gray-100 bg-light-ai-img dark:bg-Ai-image h-full bg-fixed bg-left dark:bg-left-bottom">
       <div className="container">
