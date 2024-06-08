@@ -13,6 +13,14 @@ import Image from 'next/image';
 function TopAiTools() {
     const cards = useSelector(state => state.counter.cards);
     const mode = useSelector(state => state.counter.mode);
+    useEffect(() => {
+        // Check if window is defined (i.e., running on the client-side)
+        if (typeof window !== 'undefined') {
+          // Code that accesses the window object
+          console.log(window.innerWidth);
+        }
+      }, []);
+
 
     useEffect(() => {
         if (mode === "dark") {
