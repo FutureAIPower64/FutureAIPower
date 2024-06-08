@@ -68,6 +68,7 @@ function ToggleSwitch() {
 
     return (
         <div className='container flex px-0 duration-300'>
+            {/* <merge></merge> */}
             <div className="relative dropdown-container">
                 <button onClick={toggleDropdown} className="inline-flex items-center justify-center w-[40px] py-1 text-xl dark:text-gray-200 bg-transparent text-white dark:bg-dark-black dark:hover:bg-hover-black rounded-md duration-300 " >
                     {theme == 'system' ? DarkBtn == "dark" ? <RxMoon /> : <PiSunDuotone className='text-black' /> : theme == 'dark' ? <RxMoon /> : <PiSunDuotone className='text-black' />}
