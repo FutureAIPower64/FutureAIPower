@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoCloseSharp, IoDocumentTextOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,19 +11,21 @@ function Box() {
   const cards = useSelector((state) => state.counter.cards);
 
   const [input, setInput] = useState("");
-  const [temp, setTemp] = useState([]);
 
-  // Combine the tags and titles
-  const uniqueListing = Array.from(
-    new Set([
-      ...cards.flatMap((card) => card.tags),
-      ...cards.map((card) => card.title),
-    ])
-  );
+  const uniqueListing = useMemo(() => {
+    return Array.from(
+      new Set([
+        ...cards.flatMap((card) => card.tags),
+        ...cards.map((card) => card.title),
+      ])
+    );
+  }, [cards]);
 
-  useEffect(() => {
-    setTemp(uniqueListing);
-  }, [uniqueListing]);
+  const filteredListing = useMemo(() => {
+    return uniqueListing.filter((item) =>
+      item.toLowerCase().includes(input.toLowerCase())
+    );
+  }, [uniqueListing, input]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -47,10 +49,6 @@ function Box() {
   const handleSearchData = (e) => {
     const inputValue = e.target.value;
     setInput(inputValue);
-    const filteredData = uniqueListing.filter((item) =>
-      item.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    setTemp(filteredData);
   };
 
   const searchCard = (item) => {
@@ -86,19 +84,18 @@ function Box() {
         </div>
         <div className="overflow-hidden overflow-y-scroll h-full">
           <ul className="px-2 pt-2">
-            {temp &&
-              temp.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center py-2 px-2 cursor-default hover:bg-dark-grey rounded-sm"
-                  onClick={() => searchCard(item)}
-                >
-                  <i>
-                    <IoDocumentTextOutline />
-                  </i>
-                  <span className="ps-1">{item}</span>
-                </li>
-              ))}
+            {filteredListing.map((item, index) => (
+              <li
+                key={index}
+                className="flex items-center py-2 px-2 cursor-default hover:bg-dark-grey rounded-sm"
+                onClick={() => searchCard(item)}
+              >
+                <i>
+                  <IoDocumentTextOutline />
+                </i>
+                <span className="ps-1">{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
