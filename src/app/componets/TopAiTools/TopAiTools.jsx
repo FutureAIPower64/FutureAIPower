@@ -16,6 +16,9 @@ function TopAiTools() {
     const mode = useSelector(state => state.counter.mode);
     const dispatch = useDispatch();
 
+    const dispatch = useDispatch();
+
+
     useEffect(() => {
         if (mode === "dark") {
             const btn1 = document.getElementsByClassName('owl-prev')[0];

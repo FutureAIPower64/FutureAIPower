@@ -19,10 +19,10 @@ function Sliderbar() {
             <div className="h-screen fixed sliderBar w-full lg:w-2/12  overflow-scroll dark:text-white dark:bg-dark-black text-black xl:px-4 py-10  border-e-1 dark:border-card-border xl:ps-6 ">
                 <h2 className="font-bold mb-4 text-lg ps-3 xl:ps-0 ">Category</h2>
                 <ul className="space-y-2">
-                    <li onClick={() => getcatdata("Photo Editor")} className='hover:bg-light-gray hover:dark:bg-dark-grey px-3 py-1 rounded-md '>Photo Editing</li>
-                    <li onClick={() => getcatdata("Video Editor")} className='hover:bg-light-gray px-3 py-1  hover:dark:bg-dark-grey rounded-md '>Video Editing</li>
-                    <li onClick={() => getcatdata("Text to Speech")} className='hover:bg-light-gray px-3 py-1 hover:dark:bg-dark-grey rounded-md '>Text To Speech</li>
-                    <li onClick={() => getcatdata("Logo Generator")} className='hover:bg-light-gray px-3 py-1  hover:dark:bg-dark-grey rounded-md '>Logo Generator</li>
+                    <li onClick={() => getcatdata("Photo Editor")} className='cursor-pointer hover:bg-light-gray hover:dark:bg-dark-grey px-3 py-1 rounded-md '>Photo Editing</li>
+                    <li onClick={() => getcatdata("Video Editor")} className='cursor-pointer hover:bg-light-gray px-3 py-1  hover:dark:bg-dark-grey rounded-md '>Video Editing</li>
+                    <li onClick={() => getcatdata("Text to Speech")} className='cursor-pointer hover:bg-light-gray px-3 py-1 hover:dark:bg-dark-grey rounded-md '>Text To Speech</li>
+                    <li onClick={() => getcatdata("Logo Generator")} className='cursor-pointer hover:bg-light-gray px-3 py-1  hover:dark:bg-dark-grey rounded-md '>Logo Generator</li>
                     <li>
                         {/* <button className=" w-[90%] mx-auto xl:w-full flex items-center justify-between   hover:bg-light-gray hover:dark:bg-dark-grey px-3 py-1 mb-1   rounded-10" onClick={toggleAccordion} > */}
                         <button className=" w-[90%] mx-auto xl:w-full flex items-center justify-between   hover:bg-light-gray hover:dark:bg-dark-grey dark:hover:bg-gray-700 px-3 py-1 mb-1  rounded-lg" onClick={toggleAccordion} >

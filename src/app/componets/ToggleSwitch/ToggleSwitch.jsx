@@ -31,6 +31,7 @@ const ToggleSwitch = () => {
     window.addEventListener('mousedown', outsideToggle);
 
     return (
+
         <div className='text-black dark:text-white'>
             {/* ------------------------------------------------ */}
             <div className='container flex px-0 duration-300'>
@@ -49,6 +50,7 @@ const ToggleSwitch = () => {
                             })}
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
