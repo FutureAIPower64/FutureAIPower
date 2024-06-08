@@ -14,6 +14,7 @@ import { aiData } from '@/app/store/counter/counterSlice';
 function TopAiTools() {
     const cards = useSelector(state => state.counter.cards);
     const mode = useSelector(state => state.counter.mode);
+    const dispatch = useDispatch();
 
     const dispatch = useDispatch();
 
