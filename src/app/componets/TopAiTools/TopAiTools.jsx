@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect } from 'react';
-import OwlCarousel from 'react-owl-carousel';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { HiExternalLink } from "react-icons/hi";
@@ -11,12 +11,17 @@ import BlogHead from '../BlogHead/BlogHead';
 import Image from 'next/image';
 import Link from 'next/link';
 import { aiData } from '@/app/store/counter/counterSlice';
+const OwlCarousel = dynamic(() => import('react-owl-carousel'), { ssr: false });
+
 function TopAiTools() {
     const cards = useSelector(state => state.counter.cards);
     const mode = useSelector(state => state.counter.mode);
     const dispatch = useDispatch();
+    const [carouselKey, setCarouselKey] = useState(0);
 
-    const dispatch = useDispatch();
+    useEffect(() => {
+        setCarouselKey(prevKey => prevKey + 1);
+    }, [cards]);
 
 
     useEffect(() => {
@@ -38,7 +43,7 @@ function TopAiTools() {
         <>
             <div className='pt-10 px-10'>
                 <BlogHead head={'Top AI Tools'} desc={'Read AI Related Tools. Updated daily.'} />
-                <OwlCarousel className='owl-theme AI_Tools' id='light' nav={false} margin={23} dots={false} responsive={{ 0: { items: 1 }, 500: { items: 2 }, 900: { items: 3 }, 1100: { items: 4 }, 1299: { items: 5 } }}>
+                <OwlCarousel className='owl-theme AI_Tools' id='light' nav={false} margin={23} dots={false} responsive={{ 0: { items: 1 }, 500: { items: 2 }, 900: { items: 3 }, 1100: { items: 4 }, 1299: { items: 5 } }} key={carouselKey}>
                     {cards.map((card, index) => (
                             <div key={index} className='rounded-md px-4 py-3 overflow-hidden hover:dark:bg-dark-grey dark:bg-dark-black dark:text-white w-full bg-white hover:bg-light-gray border-1 dark:border-card-border'>
                                 <div className='flex justify-between items-center h-14'>

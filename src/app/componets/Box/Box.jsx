@@ -8,7 +8,7 @@ import { searchData, changeToggle } from "../../store/counter/counterSlice";
 function Box() {
   const dispatch = useDispatch();
   const toggle = useSelector((state) => state.counter.toggle);
-  const cards = useSelector((state) => state.counter.cards);
+  const cards = useSelector((state) => state.counter.alldata);
 
   const [input, setInput] = useState("");
 
